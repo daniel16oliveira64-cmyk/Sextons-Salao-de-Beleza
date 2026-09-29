@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-gold-200 text-ink-900;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4a93f 0%, #e2c060 50%, #bd8c31 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #d4a93f 0%, #e2c060 50%, #bd8c31 100%);
+  }
+  .bg-gradient-ink {
+    background: linear-gradient(160deg, #0f0f13 0%, #1a1a20 50%, #2b2b33 100%);
+  }
+  .border-gradient-gold {
+    border-image: linear-gradient(135deg, #d4a93f, #bd8c31) 1;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5ede4;
+}
+::-webkit-scrollbar-thumb {
+  background: #c08d65;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b07a54;
+}
